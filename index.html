@@ -1,138 +1,259 @@
-<html>
- <head>
-  <title>
-   KD Clothing and Shoes
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+<html lang="en">
+<head>
+  <title>KD Fashion | Men's Top Wear</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-   document.addEventListener('DOMContentLoaded', function () {
-            const menuButton = document.getElementById('menu-button');
-            const menu = document.getElementById('menu');
-            menuButton.addEventListener('click', function () {
-                menu.classList.toggle('hidden');
-            });
-        });
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1a1a1a',
+            secondary: '#e8c07d',
+            accent: '#9a3333',
+          },
+          fontFamily: {
+            sans: ['"Playfair Display"', 'serif'],
+            body: ['"Open Sans"', 'sans-serif'],
+          },
+        }
+      }
+    }
   </script>
- </head>
- <body class="bg-gray-100">
-  <!-- Header -->
-  <nav class="relative bg-white shadow-md">
-   <div class="flex items-center p-4">
-    <img alt="Logo of KD Clothing &amp; Shoes" class="w-8 h-8 mr-2" height="32" src="logo.jpg" width="32"/>
-    <h1 class="text-lg font-medium">
-     KD Clothing &amp; Shoes
-    </h1>
-    <div class="ml-auto relative">
-     <button class="text-lg" id="menu-button">
-      <i class="fas fa-bars">
-      </i>
-     </button>
-     <ul class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md hidden" id="menu">
-      <li>
-       <a class="block px-4 py-2 text-gray-600 hover:bg-gray-100" href="https://kdfashionhub.github.io/Home/">
-        Home
-       </a>
-      </li>
-      <li>
-       <a class="block px-4 py-2 text-gray-600 hover:bg-gray-100" href="#">
-        Shop
-       </a>
-      </li>
-      <li>
-       <a class="block px-4 py-2 text-gray-600 hover:bg-gray-100" href="#">
-        About
-       </a>
-      </li>
-      <li>
-       <a class="block px-4 py-2 text-gray-600 hover:bg-gray-100" href="https://kdfashionhub.github.io/ContactUS/">
-        Contact
-       </a>
-      </li>
-     </ul>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    .navbar-scrolled {
+      background-color: rgba(10, 10, 10, 0.95) !important;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .buy-button:hover {
+      background-color: #9a3333 !important;
+    }
+  </style>
+</head>
+<body class="font-body bg-gray-50">
+  <!-- Navbar -->
+  <nav class="fixed w-full bg-white/80 transition-all duration-300 z-50 backdrop-blur-sm" id="navbar">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a class="flex items-center text-2xl font-bold text-primary font-sans" href="https://kdfashionhub.github.io/Home/">
+        <img alt="KD Fashion Logo" class="h-10 w-10 mr-3" src="logo.jpg"/>
+        KD FASHION
+      </a>
+      <div class="hidden md:flex space-x-8">
+        <a class="text-primary hover:text-secondary uppercase text-sm tracking-wider" href="https://kdfashionhub.github.io/Home/">Home</a>
+        <a class="text-primary hover:text-secondary uppercase text-sm tracking-wider" href="#">Shop</a>
+        <a class="text-primary hover:text-secondary uppercase text-sm tracking-wider" href="#">Collections</a>
+        <a class="text-primary hover:text-secondary uppercase text-sm tracking-wider" href="https://kdfashionhub.github.io/ContactUS/">Contact</a>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="#" class="text-primary hover:text-secondary"><i class="fas fa-search"></i></a>
+        <a href="#" class="text-primary hover:text-secondary"><i class="fas fa-user"></i></a>
+        <a href="#" class="text-primary hover:text-secondary relative">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="absolute -top-2 -right-2 bg-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+        </a>
+        <button class="md:hidden text-primary focus:outline-none" id="menu-button">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
     </div>
-   </div>
   </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-r from-primary to-gray-800 text-white">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-sans leading-tight mb-6">
+        MEN'S TOP WEAR COLLECTION
+      </h1>
+      <p class="text-lg opacity-90 max-w-3xl mx-auto">
+        Premium fabrics and impeccable tailoring for the modern gentleman
+      </p>
+    </div>
+  </section>
+
   <!-- Product Section -->
-  <div class="container mx-auto p-4">
-   <h2 class="text-2xl font-semibold mb-4">
-    Men's Top Wear
-   </h2>
-   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <!-- Product 1 -->
-    <div class="bg-white p-4 shadow-md rounded-lg">
-     <img alt="Men's T-shirt in a solid color" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/CAcHcQpPToZdDBdj64Ep3B9HOxbtUKeqHvDoMZeozYaB3uGUA.jpg" width="300"/>
-     <h3 class="text-lg font-medium">
-      Men's T-shirt
-     </h3>
-     <p class="text-gray-600">
-      $29.99
-     </p>
-     <button class="bg-gray-800 text-white px-4 py-2 rounded-md mt-2 buy-button">
-      Buy Now
-     </button>
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-between items-center mb-12">
+        <h2 class="text-3xl font-bold text-primary font-sans">CURATED SELECTIONS</h2>
+        <div class="flex space-x-2">
+          <button class="px-4 py-2 border border-primary text-primary text-sm uppercase tracking-wider hover:bg-primary hover:text-white transition">Filter</button>
+          <button class="px-4 py-2 border border-primary text-primary text-sm uppercase tracking-wider hover:bg-primary hover:text-white transition">Sort</button>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Product 1 -->
+        <div class="product-card bg-white rounded-lg overflow-hidden transition duration-300 h-full">
+          <div class="relative overflow-hidden h-80">
+            <img alt="Men's T-shirt" class="w-full h-full object-cover" src="https://storage.googleapis.com/a1aa/image/CAcHcQpPToZdDBdj64Ep3B9HOxbtUKeqHvDoMZeozYaB3uGUA.jpg"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
+              <button class="bg-white text-primary px-6 py-2 rounded-full font-medium">QUICK VIEW</button>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-primary font-sans">Premium Cotton T-Shirt</h3>
+              <span class="text-secondary">$29.99</span>
+            </div>
+            <p class="text-gray-600 mb-4">Ultra-soft 100% organic cotton</p>
+            <button class="w-full bg-primary text-white py-3 uppercase tracking-wider text-sm font-medium hover:bg-accent transition buy-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card bg-white rounded-lg overflow-hidden transition duration-300 h-full">
+          <div class="relative overflow-hidden h-80">
+            <img alt="Men's Polo Shirt" class="w-full h-full object-cover" src="https://storage.googleapis.com/a1aa/image/IFBplaLKsJoyItYUS1nQBt3hCf0H3nKm6HvmslfMk9bD3uGUA.jpg"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
+              <button class="bg-white text-primary px-6 py-2 rounded-full font-medium">QUICK VIEW</button>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-primary font-sans">Classic Polo Shirt</h3>
+              <span class="text-secondary">$39.99</span>
+            </div>
+            <p class="text-gray-600 mb-4">Breathable pique cotton</p>
+            <button class="w-full bg-primary text-white py-3 uppercase tracking-wider text-sm font-medium hover:bg-accent transition buy-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card bg-white rounded-lg overflow-hidden transition duration-300 h-full">
+          <div class="relative overflow-hidden h-80">
+            <img alt="Men's Casual Shirt" class="w-full h-full object-cover" src="https://storage.googleapis.com/a1aa/image/aUgIvHlZxeV7HSFFsTEA6sZizM4v6Aj1WOfy7t9F4BGA3uGUA.jpg"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
+              <button class="bg-white text-primary px-6 py-2 rounded-full font-medium">QUICK VIEW</button>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-primary font-sans">Designer Casual Shirt</h3>
+              <span class="text-secondary">$49.99</span>
+            </div>
+            <p class="text-gray-600 mb-4">Italian linen blend</p>
+            <button class="w-full bg-primary text-white py-3 uppercase tracking-wider text-sm font-medium hover:bg-accent transition buy-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card bg-white rounded-lg overflow-hidden transition duration-300 h-full">
+          <div class="relative overflow-hidden h-80">
+            <img alt="Men's Formal Shirt" class="w-full h-full object-cover" src="https://storage.googleapis.com/a1aa/image/H4SJWpCVBn5gJRBkLeculLmInFGzfYvef9EihcIPndzf321gC.jpg"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
+              <button class="bg-white text-primary px-6 py-2 rounded-full font-medium">QUICK VIEW</button>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-primary font-sans">Executive Formal Shirt</h3>
+              <span class="text-secondary">$59.99</span>
+            </div>
+            <p class="text-gray-600 mb-4">Non-iron twill fabric</p>
+            <button class="w-full bg-primary text-white py-3 uppercase tracking-wider text-sm font-medium hover:bg-accent transition buy-button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Product 2 -->
-    <div class="bg-white p-4 shadow-md rounded-lg">
-     <img alt="Men's Polo Shirt in a striped pattern" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/IFBplaLKsJoyItYUS1nQBt3hCf0H3nKm6HvmslfMk9bD3uGUA.jpg" width="300"/>
-     <h3 class="text-lg font-medium">
-      Men's Polo Shirt
-     </h3>
-     <p class="text-gray-600">
-      $39.99
-     </p>
-     <button class="bg-gray-800 text-white px-4 py-2 rounded-md mt-2 buy-button">
-      Buy Now
-     </button>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-primary font-sans mb-6">NEED HELP SELECTING?</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mb-8">Our style consultants are available to help you create the perfect wardrobe.</p>
+      <button class="bg-primary text-white px-8 py-3 font-medium uppercase tracking-wider hover:bg-accent transition">BOOK A STYLING SESSION</button>
     </div>
-    <!-- Product 3 -->
-    <div class="bg-white p-4 shadow-md rounded-lg">
-     <img alt="Men's Casual Shirt with a checkered pattern" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/aUgIvHlZxeV7HSFFsTEA6sZizM4v6Aj1WOfy7t9F4BGA3uGUA.jpg" width="300"/>
-     <h3 class="text-lg font-medium">
-      Men's Casual Shirt
-     </h3>
-     <p class="text-gray-600">
-      $49.99
-     </p>
-     <button class="bg-gray-800 text-white px-4 py-2 rounded-md mt-2 buy-button">
-      Buy Now
-     </button>
-    </div>
-    <!-- Product 4 -->
-    <div class="bg-white p-4 shadow-md rounded-lg">
-     <img alt="Men's Formal Shirt in a solid color" class="w-full h-48 object-cover mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/H4SJWpCVBn5gJRBkLeculLmInFGzfYvef9EihcIPndzf321gC.jpg" width="300"/>
-     <h3 class="text-lg font-medium">
-      Men's Formal Shirt
-     </h3>
-     <p class="text-gray-600">
-      $59.99
-     </p>
-     <button class="bg-gray-800 text-white px-4 py-2 rounded-md mt-2 buy-button">
-      Buy Now
-     </button>
-    </div>
-   </div>
-  </div>
+  </section>
+
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-8">
-   <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row justify-between">
-     <div class="mb-6 md:mb-0">
-      <h3 class="text-xl font-bold mb-4">
-       Clothing &amp; Shoes
-      </h3>
-      <p class="text-gray-400">
-       Your one-stop shop for the latest in fashion and footwear.
-      </p>
-     </div>
-     <div class="mt-6 text-center text-gray-400">
-      <p>
-       © 2023 KD Clothing &amp; Shoes. All rights reserved.
-      </p>
-     </div>
+  <footer class="bg-primary text-white py-16">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div>
+          <h3 class="text-xl font-bold font-sans mb-6">KD FASHION</h3>
+          <p class="text-gray-400 mb-6">Redefining men's fashion with exceptional quality and timeless designs.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-secondary"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-secondary"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/k.d_fashion_hub?igsh=MW11bHI3bjZnZHgwNg==" class="text-gray-400 hover:text-secondary"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-secondary"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold uppercase tracking-wider text-sm mb-6">SHOP</h4>
+          <ul class="space-y-3">
+            <li><a href="https://kdfashionhub.github.io/Men-sTopWear/" class="text-gray-400 hover:text-secondary transition">Top Wear</a></li>
+            <li><a href="https://kdfashionhub.github.io/Men-sBottomWear/" class="text-gray-400 hover:text-secondary transition">Bottom Wear</a></li>
+            <li><a href="https://kdfashionhub.github.io/Shoes/" class="text-gray-400 hover:text-secondary transition">Footwear</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-secondary transition">New Arrivals</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold uppercase tracking-wider text-sm mb-6">CUSTOMER CARE</h4>
+          <ul class="space-y-3">
+            <li><a href="https://kdfashionhub.github.io/ContactUS/" class="text-gray-400 hover:text-secondary transition">Contact Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-secondary transition">FAQs</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-secondary transition">Shipping & Returns</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-secondary transition">Size Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold uppercase tracking-wider text-sm mb-6">NEWSLETTER</h4>
+          <p class="text-gray-400 mb-4">Subscribe for exclusive offers and style insights.</p>
+          <form class="flex">
+            <input type="email" placeholder="Your email" class="px-4 py-2 w-full text-gray-900 focus:outline-none">
+            <button type="submit" class="bg-secondary text-primary px-4 py-2 font-medium"><i class="fas fa-arrow-right"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+        <p>© 2024 KD FASHION. All rights reserved. | <a href="#" class="hover:text-secondary">Privacy Policy</a> | <a href="#" class="hover:text-secondary">Terms of Service</a></p>
+      </div>
     </div>
-   </div>
   </footer>
- </body>
-</html>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    document.getElementById('menu-button').addEventListener('click', function() {
+      const menu = document.querySelector('.md\\:hidden');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
+    });
+
+    // Product interaction
+    document.querySelectorAll('.buy-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const productName = this.closest('.product-card').querySelector('h3').textContent;
+        const productPrice = this.closest('.product-card').querySelector('span').textContent;
+        alert(`Added to cart: ${productName} - ${productPrice}`);
+      });
+    });
+  </script>
+</body>
+ </html>
